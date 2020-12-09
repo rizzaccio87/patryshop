@@ -1,6 +1,7 @@
 package com.projects.patryshop.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "CAKES")
@@ -13,12 +14,15 @@ public class Cake {
     @Column(name = "NAME", nullable = false, length = 250)
     private String name;
 
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private Double price;
 
     @Lob
-    @Column(name = "INGREDIENTS")
+    @Column(name = "INGREDIENTS", nullable = false)
     private String ingredients;
+
+    @OneToMany(mappedBy = "cake", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private Set<Cake> cakes;
 
     public Cake() {
     }
@@ -60,5 +64,13 @@ public class Cake {
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Set<Cake> getCakes() {
+        return cakes;
+    }
+
+    public void setCakes(Set<Cake> cakes) {
+        this.cakes = cakes;
     }
 }
