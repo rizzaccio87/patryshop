@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "AMOUNT", nullable = false)

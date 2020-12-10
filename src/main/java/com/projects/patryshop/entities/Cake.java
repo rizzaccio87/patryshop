@@ -1,14 +1,13 @@
 package com.projects.patryshop.entities;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "CAKES")
 public class Cake {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "NAME", nullable = false, length = 250)
@@ -20,9 +19,6 @@ public class Cake {
     @Lob
     @Column(name = "INGREDIENTS", nullable = false)
     private String ingredients;
-
-    @OneToMany(mappedBy = "cake", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
-    private Set<Order> orders;
 
     public Cake() {
     }
@@ -66,11 +62,4 @@ public class Cake {
         this.ingredients = ingredients;
     }
 
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Set<Order> orders) {
-        this.orders = orders;
-    }
 }

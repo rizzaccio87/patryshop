@@ -39,7 +39,6 @@ public class CakeServiceImpl implements CakeService {
         retrievedCake.setName(cake.getName());
         retrievedCake.setPrice(cake.getPrice());
         retrievedCake.setIngredients(cake.getIngredients());
-        retrievedCake.setOrders(cake.getOrders());
         return repository.save(retrievedCake);
     }
 
