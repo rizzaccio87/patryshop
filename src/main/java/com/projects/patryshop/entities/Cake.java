@@ -22,7 +22,7 @@ public class Cake {
     private String ingredients;
 
     @OneToMany(mappedBy = "cake", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-    private Set<Cake> cakes;
+    private Set<Order> orders;
 
     public Cake() {
     }
@@ -66,11 +66,11 @@ public class Cake {
         this.ingredients = ingredients;
     }
 
-    public Set<Cake> getCakes() {
-        return cakes;
+    public Set<Order> getOrders() {
+        return orders;
     }
 
-    public void setCakes(Set<Cake> cakes) {
-        this.cakes = cakes;
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }

@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "ORDERS")
-public class Orders {
+public class Order {
 
     @Id
     @GeneratedValue
@@ -24,10 +24,10 @@ public class Orders {
     @JoinColumn(name = "CAKE_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_CAKE"))
     private Cake cake;
 
-    public Orders() {
+    public Order() {
     }
 
-    public Orders(Long id, Integer amount, ZonedDateTime creationTimestamp, Cake cake) {
+    public Order(Long id, Integer amount, ZonedDateTime creationTimestamp, Cake cake) {
         this.id = id;
         this.amount = amount;
         this.creationTimestamp = creationTimestamp;
