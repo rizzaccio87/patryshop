@@ -21,7 +21,7 @@ public class Cake {
     @Column(name = "INGREDIENTS", nullable = false)
     private String ingredients;
 
-    @OneToMany(mappedBy = "cake", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    @OneToMany(mappedBy = "cake", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
     private Set<Order> orders;
 
     public Cake() {

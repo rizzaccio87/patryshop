@@ -40,7 +40,7 @@ public class CakeServiceImpl implements CakeService {
         retrievedCake.setPrice(cake.getPrice());
         retrievedCake.setIngredients(cake.getIngredients());
         retrievedCake.setOrders(cake.getOrders());
-        return repository.saveAndFlush(cake);
+        return repository.save(retrievedCake);
     }
 
     @Override
