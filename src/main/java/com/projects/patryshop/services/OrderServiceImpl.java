@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,7 +30,8 @@ public class OrderServiceImpl implements OrderService {
         Cake cake = cakeRepository.findById(orderDTO.getCakeId()).get();
         Order order = new Order();
         order.setCake(cake);
-        order.setCreationTimestamp(ZonedDateTime.now());
+        order.setCreationTimestamp(
+                Objects.isNull(orderDTO.getCreationTimestamp()) ? ZonedDateTime.now() : orderDTO.getCreationTimestamp());
         order.setAmount(orderDTO.getAmount());
         Order savedOrder = repository.save(order);
         return this.convertToOrderDTO(savedOrder);
