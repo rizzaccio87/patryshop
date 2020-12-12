@@ -10,7 +10,7 @@ public class Cake {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME", nullable = false, length = 250)
+    @Column(name = "NAME", unique = true, nullable = false, length = 250)
     private String name;
 
     @Column(name = "PRICE", nullable = false)

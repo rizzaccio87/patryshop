@@ -74,7 +74,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setCakeName(order.getCake().getName());
         orderDTO.setAmount(order.getAmount());
         orderDTO.setCreationTimestamp(order.getCreationTimestamp());
-        orderDTO.setPrice(order.getCake().getPrice()); // TODO: changed based on creationTimestamp
+        orderDTO.setPrice(order.getCake().getPrice());
         return orderDTO;
     }
 
